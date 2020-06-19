@@ -6,7 +6,6 @@ export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
-
     //binding this to each instance, else this would be undefined
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
