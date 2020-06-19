@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 import Navbar from "./components/navbar.component";
 import ExcerciseList from "./components/exercises-list.component";
-import EditExercises from "./components/edit-exercises.component";
+import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 
@@ -14,12 +14,14 @@ import CreateUser from "./components/create-user.component";
 function App() {
   return (
     <Router>
-      <Navbar />
-      <br/>
-      <Route path="/" exact component={ExcerciseList} />
-      <Route path="/edit/:id"component={EditExercises} />    
-      <Route path="/create"component={CreateExercise} />
-      <Route path="/user"component={CreateUser} />
+      <div className="container"> {/* maybe get rid of this div as it creates a buffer on either side of the nav */}
+        <Navbar />
+        <br/>
+        <Route path="/" exact component={ExcerciseList} />
+        <Route path="/edit/:id"component={EditExercise} />    
+        <Route path="/create"component={CreateExercise} />
+        <Route path="/user"component={CreateUser} />
+      </div>
     </Router>
   );
 }
