@@ -29,9 +29,7 @@ export default class ExercisesList extends Component {
       .then(response => { 
         this.setState({ exercises: response.data })
       })
-      .catch((error) => {
-        console.log(error);
-      })
+      .catch(error => console.log(error));
   }
 
   deleteExercise(id) {
@@ -41,7 +39,6 @@ export default class ExercisesList extends Component {
     this.setState({
       exercises: this.state.exercises.filter(el => el._id !== id)
     })
-    
   }
 
   exerciseList() {
@@ -69,7 +66,6 @@ export default class ExercisesList extends Component {
           </tbody>
         </table>
       </div>
-
     )
   }
 }

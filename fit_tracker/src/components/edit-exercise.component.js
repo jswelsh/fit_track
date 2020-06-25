@@ -26,15 +26,15 @@ export default class EditExercise extends Component {
   
   componentDidMount(){
     axios.get('http://localhost:5000/exercises'+this.props.match.params.id)
-    .then(response => {
-      this.setState({
-        username: response.data.username,
-        description: response.data.description,
-        duration: response.data.duration,
-        date: new Date(response.data.date)
+      .then(response => {
+        this.setState({
+          username: response.data.username,
+          description: response.data.description,
+          duration: response.data.duration,
+          date: new Date(response.data.date)
+        })
       })
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
 
     axios.get('http://localhost:5000/users/')
       .then(response => {
@@ -44,7 +44,7 @@ export default class EditExercise extends Component {
           })
         }
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(error));
   }
 
   onChangeUsername(e) {
@@ -84,8 +84,8 @@ export default class EditExercise extends Component {
     console.log(exercise)
 
 		axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
-			.then(res => console.log(res.data));
-    
+      .then(res => console.log(res.data))
+      .catch(error => console.log(error));
       window.location = '/';
   }
 

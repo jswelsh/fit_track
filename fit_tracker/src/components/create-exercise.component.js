@@ -14,7 +14,6 @@ export default class CreateExercise extends Component {
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);    
 
-    
     this.state = {
       username: '',
       description: '',
@@ -34,6 +33,7 @@ export default class CreateExercise extends Component {
           })
         }
       })
+      .catch(error => console.log(error));
   }
 
   onChangeUsername(e) {
@@ -73,7 +73,9 @@ export default class CreateExercise extends Component {
     console.log(exercise)
 
 		axios.post('http://localhost:5000/exercises/add', exercise)
-			.then(res => console.log(res.data));
+      .then(res => console.log(res.data))
+      .catch(error => console.log(error));
+      
     
       window.location = '/';
   }
